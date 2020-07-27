@@ -1,0 +1,21 @@
+.btn-style{
+    margin-top: 3em;
+    position: relative;
+    margin-left: 5em;
+}
+.img-fixed{
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 5em;
+
+}
+.right-side-margin{
+    padding-left: 5em;
+}
+.img-margin{
+    padding-top: 3em;
+    padding-left: 5em;
+}
+.card-style{
+    margin: 100px;
+}

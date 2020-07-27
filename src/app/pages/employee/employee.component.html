@@ -1,0 +1,55 @@
+<div class="card-style">
+    <mat-card class="example-card" id="card">
+        <mat-card-content>
+            <form class="example-form">
+                <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                    <tr>
+                        <img class="img-margin" [src]="imageUrl">
+                    </tr>
+                    <tr>
+                        <input class="img-fixed" type="file" #Image accept="image/*"
+                            (change)="handleFileInput($event.target.files)" *ngIf="this.isButtonVisible">
+                    </tr>
+                    <tr class="btn-style">
+                        <button class="btn-style" mat-raised-button color="primary"
+                            (click)="changeStatus()">Edit</button>
+                        <button class="btn-style" mat-raised-button color="primary" matTooltip="Save" (click)="onSave()"
+                            *ngIf="this.isButtonVisible">Save
+                            <mat-icon>archive</mat-icon>
+                        </button>
+                    </tr>
+                    </td>
+                    <td class="right-side-margin">
+                        <tr>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <input matInput placeholder="First Name" [disabled]="inactive"
+                                    [(ngModel)]="employee.firstName" name="firstName">
+                            </mat-form-field>
+                        </tr>
+                        <tr>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <input matInput placeholder="Last Name" [disabled]="inactive"
+                                    [(ngModel)]="employee.lastName" name="lastName">
+                            </mat-form-field>
+                        </tr>
+                        <tr>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <input matInput placeholder="Phone" [disabled]="inactive" [(ngModel)]="employee.phone"
+                                    name="phone">
+                            </mat-form-field>
+                        </tr>
+                        <tr>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <input matInput placeholder="Total Working Hours" [disabled]="inactive" readonly="true"
+                                    [(ngModel)]="employee.hoursActive" name="hoursActive">
+                            </mat-form-field>
+                        </tr>
+                    </td>
+                    </tr>
+                </table>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,38 @@
+<mat-toolbar style="height: 15px;">
+    <span style="margin-top: 2em; margin-bottom: 2em">Add new employee</span>
+</mat-toolbar>
+
+<div class="row">
+    <mat-form-field class="form-style">
+        <input class="create-input" matInput type="text" placeholder="First Name" required [(ngModel)]="employee.firstName" name="firstName">
+    </mat-form-field>
+</div>
+<div class="row">
+    <mat-form-field class="form-style">
+        <input class="create-input" matInput placeholder="Last Name" type="text" required [(ngModel)]="employee.lastName" name="lastName">
+    </mat-form-field>
+</div>
+<div class="row">
+    <mat-form-field class="form-style">
+        <input class="create-input" matInput placeholder="Email" type="text" required [(ngModel)]="employee.email" name="email">
+    </mat-form-field>
+</div>
+<div class="row">
+    <mat-form-field class="form-style">
+        <input class="create-input" matInput placeholder="Phone" type="text" required [(ngModel)]="employee.phone" name="phone">
+    </mat-form-field>
+</div>
+<div class="row">
+    <mat-form-field class="form-style">
+        <input class="create-input" matInput placeholder="Password" type="text" required [(ngModel)]="employee.password" name="password">
+    </mat-form-field>
+</div>
+
+<mat-dialog-actions>
+    <div class="margin-btn">
+        <button class="mat-raised-button" [mat-dialog-close]>Close</button>
+    </div>
+    <div>
+        <button class="mat-raised-button mat-primary" (click)="onSave()" [mat-dialog-close]>Save</button>
+    </div>
+</mat-dialog-actions>
