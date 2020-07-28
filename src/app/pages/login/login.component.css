@@ -18,3 +18,12 @@ mat-card {
 mat-form-field {
   display: block;
 }
+.mat-card-title {
+  margin: 1em;
+  padding-left: 3em;
+  padding-bottom: 1em;
+}
+.example-full-width {
+  margin-left: 2em;
+  margin-right: 2em;
+}

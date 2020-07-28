@@ -12,16 +12,17 @@ import { CreateEmployeeComponent } from '../employee/create-employee/create-empl
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-  
- employees: Observable<Employee[]>;
-  // = [
-  //   {id: 1, email: 'Hydrogen', firstName: 'Hydrogen', lastName: 'Hydrogen', password: 'Hydrogen', phone:'Hydrogen', avatar: 'H', hoursActive: 5},
-  //   {id: 2, email: 'Hydrogen', firstName: 'Hydrogen', lastName: 'Hydrogen', password: 'Hydrogen', phone:'Hydrogen', avatar: 'H', hoursActive: 5},
-  //   {id: 3, email: 'Hydrogen', firstName: 'Hydrogen', lastName: 'Hydrogen', password: 'Hydrogen', phone:'Hydrogen', avatar: 'H', hoursActive: 5},
-  //    ];
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'phone', 'hoursActive', 'action', 'details'];
+  employees: Observable<Employee[]>;
 
-  // employee: Employee = new Employee();
+  displayedColumns: string[] = [
+    'firstName',
+    'lastName',
+    'email',
+    'phone',
+    'hoursActive',
+    'action',
+    'details',
+  ];
 
   constructor(
     private employeeService: EmployeeService,
@@ -38,8 +39,6 @@ export class AdminComponent implements OnInit {
   }
 
   deleteEmployee(id: number) {
-    console.log("Izbrisi");
-
     this.employeeService.deleteEmployee(id).subscribe(
       (data) => {
         console.log(data);
@@ -50,23 +49,17 @@ export class AdminComponent implements OnInit {
   }
 
   navigateToEmployee(id: number) {
-    console.log("Idi na detalje");
     this.router.navigate(['employee', id]);
   }
 
   addEmployee() {
-    console.log("Dodaj novog");
-
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width="35%";
-    dialogConfig.height="80%"
+    dialogConfig.width = '35%';
+    dialogConfig.height = '80%';
 
     this.dialog.open(CreateEmployeeComponent, dialogConfig);
   }
-
-  
-
 }

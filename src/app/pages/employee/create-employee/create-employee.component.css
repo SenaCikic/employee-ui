@@ -1,11 +1,18 @@
 .form-style {
-  width: 80%;
+  width: 85%;
   margin-top: 1em;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .create-input {
   margin-left: 5%;
-  width: 80%;
+  /* width: 80%; */
 }
 .margin-btn {
-  margin-right: 5em;
+  margin-right: 14.5em;
+  margin-left: 1.5em;
+}
+.header-create{
+  color:blue;
+  width: 80%;
 }

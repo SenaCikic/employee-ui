@@ -1,6 +1,30 @@
 table {
-  width: 100%;
+  width: 95%;
+  margin-left: 2em;
+  margin-right: 1em;
 }
 .add-btn{
   margin-left: 85%;
+}
+.th-style {
+  background-color: #BBD8E5;
+  color: white;
+  text-align: center;
+  font-size: medium;
+}
+.td-style{
+  text-align: left;
+}
+.center-column{
+  text-align: center;
+}
+.details-column{
+  text-align: center;
+}
+.details-btn{
+  text-decoration: underline;
+  color: blue;
+}
+.header-style{
+  padding-left: 2em;
 }

@@ -1,5 +1,5 @@
-<mat-toolbar style="height: 15px;">
-    <span style="margin-top: 2em; margin-bottom: 2em">Add new employee</span>
+<mat-toolbar style="height:fit-content" >
+    <span class="header-create">Add new employee</span>
 </mat-toolbar>
 
 <div class="row">
@@ -24,7 +24,7 @@
 </div>
 <div class="row">
     <mat-form-field class="form-style">
-        <input class="create-input" matInput placeholder="Password" type="text" required [(ngModel)]="employee.password" name="password">
+        <input class="create-input" matInput placeholder="Password" type="password" required [(ngModel)]="employee.password" name="password">
     </mat-form-field>
 </div>
 
