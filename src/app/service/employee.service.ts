@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Employee } from '../model/employee';
+import { UploadRequest } from '../model/uploadRequest';
 
 
 @Injectable({
@@ -37,18 +37,15 @@ export class EmployeeService {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  uploadFile(fileToUpload: File, id: number): Observable<any>{
-    const formData: FormData = new FormData();
-    formData.append('fileKey', fileToUpload);
-    return this.http.post(`${this.baseUrl}/${id}/avatar`, formData);
+  uploadFile(fileToUpload: UploadRequest, id: number): Observable<any>{
+    return this.http.post(`${this.baseUrl}/${id}/upload/avatar`, fileToUpload);
   }
 
-  getFile(id: number) : Observable<any> {
+  getAvatar(id: number) : Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}/avatar`);
   }
 
-  login(employee: Object): Observable<any> {
-    return this.http.post<any>(`${this.loginUrl}`, employee);
+  login(loginRequest: Object): Observable<any> {
+    return this.http.post<any>(`${this.loginUrl}`, loginRequest);
   }
- 
 }

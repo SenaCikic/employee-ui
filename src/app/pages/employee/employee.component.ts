@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Employee } from '../../model/employee';
 import { EmployeeService } from '../../service/employee.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { UploadRequest } from 'src/app/model/uploadRequest';
 
 @Component({
   selector: 'app-employee',
@@ -12,9 +12,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class EmployeeComponent implements OnInit {
   employee: Employee;
   id: number;
+  avatar: any;
 
-  imageUrl: string = '../assets/img/img-avatar-blank.jpg';
-  fileToUpload: File;
+  selectedFile: File;
 
   public inactive: boolean = true;
   public isButtonVisible: boolean = false;
@@ -24,26 +24,60 @@ export class EmployeeComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-
     this.employee = new Employee();
 
     this.id = this.route.snapshot.params['id'];
 
-    this.employeeService.getEmployee(this.id)
-      .subscribe((data) => {
-        console.log(data);
-        this.employee = data;
-      }, (error) => console.log(error))
+    this.getEmployee();
   }
 
-  handleFileInput(file: FileList) {
-    this.fileToUpload = file.item(0);
+  handleFileInput(event) {
+    this.selectedFile = event.target.files[0];
+    console.log('swel', this.selectedFile);
+    let importRequest: UploadRequest = new UploadRequest();
+    let reader = new FileReader();
+    reader.readAsBinaryString(this.selectedFile);
+    reader.onload = () =>{
+      importRequest.file = btoa(reader.result.toString());
+      importRequest.fileName = this.selectedFile.name;
+      importRequest.mimeType = this.selectedFile.type;
+      importRequest.extension = this.getExtensionFromFileName(this.selectedFile.name);
+      console.log("req",importRequest)
+      this.employeeService
+      .uploadFile(importRequest, this.id).subscribe((response) => {
+        {
+          this.getAvatar();
+          console.log('Success');
+        }
+        (error) => console.log('Failed');
+      });
+    }
+    
+  }
 
-    var reader = new FileReader();
-    reader.onload = (event: any) => {
-      this.imageUrl = event.target.result;
-    };
-    reader.readAsDataURL(this.fileToUpload);
+  getExtensionFromFileName(fileName: string){
+    return fileName.substr(fileName.lastIndexOf('.')+1);
+  }
+
+  getAvatar() {
+    this.employeeService.getAvatar(this.id).subscribe(
+      (data) => {
+        if (data != null) {
+          this.avatar = 'data:' + data.mimeType + ';base64,' + data.file;
+        }
+      },
+      (error) => console.log(error)
+    );
+  }
+
+  getEmployee() {
+    this.employeeService.getEmployee(this.id).subscribe(
+      (data) => {
+        this.employee = data;
+        this.getAvatar();
+      },
+      (error) => console.log(error)
+    );
   }
 
   changeStatus() {

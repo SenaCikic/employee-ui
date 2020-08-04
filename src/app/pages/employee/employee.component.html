@@ -7,11 +7,12 @@
                     <tr>
                         <td>
                     <tr>
-                        <img class="img-margin" [src]="imageUrl">
+                        <img [src]="avatar" (error)="avatar = '../assets/img/img-avatar-blank.jpg'" class="img-margin"
+                            alt="">
                     </tr>
                     <tr>
-                        <input class="img-fixed" type="file" #Image accept="image/*"
-                            (change)="handleFileInput($event.target.files)" *ngIf="this.isButtonVisible">
+                        <input class="img-fixed" type="file" (change)="handleFileInput($event)"
+                            *ngIf="this.isButtonVisible">
                     </tr>
                     <tr class="btn-style">
                         <button class="btn-style" mat-raised-button color="primary"
