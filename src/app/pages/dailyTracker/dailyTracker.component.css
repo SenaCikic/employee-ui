@@ -1,0 +1,27 @@
+table {
+    width: 95%;
+    margin-left: 2em;
+    margin-right: 1em;
+  }
+  .th-style {
+    background-color: #BBD8E5;
+    color: white;
+    text-align: center;
+    font-size: medium;
+  }
+  .td-style{
+    text-align: center;
+  }
+  .center-column{
+    text-align: center;
+  }
+  .details-column{
+    text-align: center;
+  }
+  .details-btn{
+    text-decoration: underline;
+    color: blue;
+  }
+  .header-style{
+    padding-left: 2em;
+  }

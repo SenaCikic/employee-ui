@@ -21,6 +21,8 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MatTableModule} from '@angular/material/table';
 import { CreateEmployeeComponent } from './pages/employee/create-employee/create-employee.component';
+import { DailyTrackerComponent } from './pages/dailyTracker/dailyTracker.component';
+import { MonthlyTrackerComponent } from './pages/monthlyTracker/monthlyTracker.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { CreateEmployeeComponent } from './pages/employee/create-employee/create
     LoginComponent,
     EmployeeComponent,
     AdminComponent,
-    CreateEmployeeComponent
+    CreateEmployeeComponent,
+    MonthlyTrackerComponent,
+    DailyTrackerComponent
   ],
   imports: [
     BrowserModule,

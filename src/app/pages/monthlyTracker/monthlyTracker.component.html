@@ -1,0 +1,33 @@
+<div>
+    <h2 class="header-style">Monthly Review
+    </h2>
+  </div>
+  <table mat-table [dataSource]="monthlyTracker" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="day">
+      <th class="th-style" mat-header-cell *matHeaderCellDef> Day </th>
+      <td class="td-style" mat-cell *matCellDef="let element"> {{element.day}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="totalWorkingTime">
+      <th class="th-style" mat-header-cell *matHeaderCellDef> Total Working Time </th>
+      <td class="center-column" mat-cell *matCellDef="let element"> {{element.totalWorkingTime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalPauseTime">
+      <th class="th-style" mat-header-cell *matHeaderCellDef> Total Pause Time </th>
+      <td class="center-column" mat-cell *matCellDef="let element"> {{element.totalPauseTime}}  </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="details">
+      <th class="th-style" mat-header-cell *matHeaderCellDef> Daily Review </th>
+      <td class="details-column" mat-cell *matCellDef="let element">
+        <button class="details-btn" mat-flat-button (click)="navigateToDailyTracker(id, month)">Click for daily review</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  
+  </table>

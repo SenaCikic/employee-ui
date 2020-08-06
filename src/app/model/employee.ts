@@ -6,5 +6,5 @@ export class Employee {
     password: string;
     phone: string;
     avatar: string;
-    hoursActive: number;
+    role: string;
 }

@@ -14,10 +14,9 @@
                         <input class="img-fixed" type="file" (change)="handleFileInput($event)"
                             *ngIf="this.isButtonVisible">
                     </tr>
-                    <tr class="btn-style">
-                        <button class="btn-style" mat-raised-button color="primary"
-                            (click)="changeStatus()">Edit</button>
-                        <button class="btn-style" mat-raised-button color="primary" matTooltip="Save" (click)="onSave()"
+                    <tr>
+                        <button class="btn-style" mat-raised-button (click)="changeStatus()">Edit</button>
+                        <button class="btn-style" mat-raised-button matTooltip="Save" (click)="onSave()"
                             *ngIf="this.isButtonVisible">Save
                             <mat-icon>archive</mat-icon>
                         </button>
@@ -43,11 +42,20 @@
                             </mat-form-field>
                         </tr>
                         <tr>
-                            <mat-form-field class="example-full-width" appearance="outline">
-                                <input matInput placeholder="Total Working Hours" [disabled]="inactive" readonly="true"
-                                    [(ngModel)]="employee.hoursActive" name="hoursActive">
+                            <button class="review-btn" mat-raised-button color="primary"
+                                (click)="navigateToMonthlyReview(id, month)">Montly Review</button>
+                        </tr>
+                    </td>
+                    <td class="check-in-out-margin">
+                        <tr>
+                            <mat-form-field appearance="fill" class="btn-checkIn">
+                                <mat-label class="btn-checkIn">Check In / Check Out</mat-label>
+                                <mat-select [(ngModel)]="selectedValue" name="selectedValue" >
+                                    <mat-option (click)="addNewTracking()" *ngFor="let action of actions" [value]="action">{{action}}</mat-option>
+                                </mat-select>
                             </mat-form-field>
                         </tr>
+
                     </td>
                     </tr>
                 </table>

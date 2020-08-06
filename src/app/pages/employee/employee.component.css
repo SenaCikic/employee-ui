@@ -2,14 +2,21 @@
   margin-top: 3em;
   position: relative;
   margin-left: 5em;
+  background-color: #BBD8E5;
+  color: white;
+  font-size: medium;
 }
 .img-fixed {
   /* position: absolute; */
   margin-top: 5px;
   margin-left: 5em;
+  width: 80%;
+  height: 60%;
 }
 .right-side-margin {
   padding-left: 5em;
+  padding-bottom: 6rem;
+  padding-top: 3rem;
 }
 .img-margin {
   padding-top: 3em;
@@ -18,3 +25,32 @@
 .card-style {
   margin: 60px;
 }
+.btn-checkIn{
+  background-color: greenyellow;
+  margin-right: 4em;
+  font-size: medium;
+  height: 4rem;
+  border-radius: 5%;
+  margin-bottom: 14rem;
+}
+/* .btn-checkOut{
+  background-color: red;
+  color: white;
+  margin-bottom: 15rem;
+  font-size: medium;
+} */
+.check-in-out-margin {
+  padding-left: 10em;
+  padding-bottom: 5em;
+}
+.review-btn{
+  width: 100%;
+  background-color: #BBD8E5;
+  font-size: medium;
+  margin-top: 3rem
+}
+.mat-label{
+  color: white;
+  font-size: medium;
+}
+
